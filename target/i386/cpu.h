@@ -1699,6 +1699,16 @@ typedef struct CPUArchState {
     uint64_t msr_lbr_depth;
     LBREntry lbr_records[ARCH_LBR_NR_ENTRIES];
 
+    /* Energy reporting MSRS */
+    uint64_t msr_rapl_power_unit; /* 0x00000606 */
+    uint64_t msr_rapl_pkg_energy_status; /* 0x00000611 */
+    uint64_t msr_rapl_dram_energy_status; /* 0x00000619 */
+    uint64_t msr_rapl_pp0_energy_status; /* 0x00000639 */
+    uint64_t msr_rapl_pp1_energy_status; /* 0x00000641 */
+    uint64_t msr_rapl_power_unit; /* 0xc0010299 */
+    uint64_t msr_rapl_amd_core_energy_status; /* 0xc001029a */
+    uint64_t msr_rapl_amd_pkg_energy_status; /* 0xc001029b */
+
     /* exception/interrupt handling */
     int error_code;
     int exception_is_int;
